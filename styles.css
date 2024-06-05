@@ -1,0 +1,105 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif; /* Set the font family for the body */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: 100vh; /* Set the height of the viewport to 100% */
+    background-color: #323138; /* Set the background color */
+    margin: 0; /* Remove default margin */
+  }
+  
+  .game-container {
+    text-align: center; /* Center text inside the container */
+  }
+  
+  /* Score and Status Board */
+  .score-board {
+    margin-bottom: 20px; /* Add margin below the score board */
+  }
+  
+  .score,
+  .status {
+    font-size: 1.5em; /* Set font size */
+    margin: 5px; /* Add margin */
+    font-family: 'Open Sans', sans-serif; /* Change font to Open Sans */
+    color: #bbb; /* Change color to light grey */
+  }
+  
+  /* Cards Grid */
+  .cards-grid {
+    display: grid; /* Use CSS Grid for layout */
+    grid-template-columns: repeat(4, 100px); /* Define columns */
+    grid-gap: 10px; /* Add gap between grid items */
+    justify-content: center; /* Center the grid horizontally */
+  }
+  
+  .card {
+    width: 100px; /* Set card width */
+    height: 100px; /* Set card height */
+    background-color: #9e9ec7; /* Set background color */
+    border-radius: 10px; /* Round the corners */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    font-size: 2em; /* Set font size */
+    color: #e8e8e8; /* Set text color */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    position: relative; /* Position relative for child elements */
+    transform: perspective(600px) rotateY(0deg); /* 3D perspective and rotation */
+    transition: transform 0.5s, background-color 0.3s; /* Add transitions */
+  }
+  
+  .card.flipped {
+    transform: perspective(600px) rotateY(180deg); /* Rotate the card when flipped */
+  }
+  
+  .card.matched {
+    background-color: #c7c19c;  /* Change background color for matched cards */
+    cursor: default; /* Change cursor to default */
+  }
+  
+  .card .front,
+  .card .back {
+    position: absolute; /* Position absolutely within the card */
+    width: 100%; /* Set width to 100% */
+    height: 100%; /* Set height to 100% */
+    backface-visibility: visible; /* Hide the back face of the card */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    border-radius: 10px; /* Round the corners */
+  }
+  
+  .card .front {
+    background-color: #f8b195; /* Set background color for front */
+    transition: opacity 0.5s; /* Add transition for opacity */
+  }
+  
+  .card .front.show {
+    opacity: 1; /* Make front fully opaque when shown */
+  }
+  
+  .card .front {
+    opacity: 0; /* Make front transparent by default */
+  }
+  
+  .card .back {
+    background-color: #655e7e; /* Set background color for back */
+    transform: rotateY(180deg); /* Rotate back face */
+    font-size: 3em; /* Make the font size larger */
+    font-weight: bold; /* Make the font bold */
+  }
+  
+  .card.shake {
+    animation: shake 0.5s; /* Apply shake animation */
+  }
+  
+  @keyframes shake {
+    0% { transform: translateX(0); } /* Initial position */
+    25% { transform: translateX(-10px); } /* Move left */
+    50% { transform: translateX(10px); } /* Move right */
+    75% { transform: translateX(-10px); } /* Move left */
+    100% { transform: translateX(0); } /* Return to initial position */
+  }
+  
